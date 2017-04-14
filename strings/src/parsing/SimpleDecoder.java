@@ -4,16 +4,17 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * aabccczz --> 1{2}23{3}26#{2}
+ * @author rockyinde
+ *
+ */
 public class SimpleDecoder {
 
 	enum Type {
 		DIGIT, LEFT, RIGHT, HASH;
 	}
 	
-	/*
-	 * Complete the function below.
-	 */
-
 	static Type getType(char c) {
 
 		if (c == '(')
@@ -26,7 +27,7 @@ public class SimpleDecoder {
 			return Type.DIGIT;
 	}
 	
-	static int[] frequency(String s) {
+	static int[] getCounts(String s) {
 
 		int l = s.length();
 		
@@ -67,7 +68,7 @@ public class SimpleDecoder {
 	public static void main (String[] args) throws IOException {
 		
 		BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
-		int[] count = frequency(br.readLine());
+		int[] count = getCounts(br.readLine());
 		
 		System.out.print(count[0]);
 		for (int i = 1; i < 26; i++) {
